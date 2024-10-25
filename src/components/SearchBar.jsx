@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {FaSearch} from 'react-icons/fa'; 
+import SubRegionFilter from './SubRegionFilter';
+import Sort from './Sort';
+import RegionFilter from './RegionFilter';
 
-const SearchBar = ({searchValue,setSearchValue,region,setRegion}) => {
-    const regions = ["Africa", "Asia", "Europe", "Americas", "Oceania"];
+const SearchBar = ({searchValue,setSearchValue,region,setRegion,subRegion,setSubRegion,countries,setResultCountries,sortOrder,setSortOrder}) => {
     
   return (
-    <div className='grid grid-cols-1 md:grid-cols-4 mx-10 mt-5 place-items-center'>
+    <div className='grid grid-cols-1 md:grid-cols-5 mx-10 mt-5 place-items-center'>
       <div className='box-border place-self-start col-span-2 ml-10 m-6 relative w-80 md:w-[500px]'>
         <FaSearch className='absolute top-5 left-10 text-gray-400'/>
       <input
@@ -15,17 +17,9 @@ const SearchBar = ({searchValue,setSearchValue,region,setRegion}) => {
         value={searchValue}
         onChange={(e)=>setSearchValue(e.target.value)} 
       /></div>
-      <div className="col-span-1"></div>
-      <select 
-      className='box-border bg-white w-60 ml-20 p-5'
-      value={region} 
-      onChange={(e)=>setRegion(e.target.value)}  
-      >
-        <option value="">Filter by region</option>
-        {regions.map((region, index) => (
-          <option key={index} value={region}>{region}</option>
-        ))}
-      </select>
+      <RegionFilter region={region} setRegion={setRegion} setSubRegion={setSubRegion} countries={countries}/>
+      <SubRegionFilter subRegion={subRegion} setSubRegion={setSubRegion} countries={countries} region={region}/>
+      <Sort sortOrder={sortOrder} setSortOrder={setSortOrder} setResultCountries={setResultCountries}/>
     </div>
   )
 }

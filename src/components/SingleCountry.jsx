@@ -6,7 +6,7 @@ const SingleCountry = ({country}) => {
         <img className="w-80 h-40" src={country.flags.png}/>
         <div className='ml-5 my-3'>
         <h1 className='font-bold'>{country.name.common}</h1>
-        <h3><p className='font-medium inline'>Population:</p> {country.name.common}</h3>
+        <h3><p className='font-medium inline'>Population:</p> {country.population}</h3>
         <h3><p className='font-medium inline'>Region</p>:{country.region}</h3>
         <h3><p className='font-medium inline'>Capital:</p> {country.capital}</h3>
         </div>
