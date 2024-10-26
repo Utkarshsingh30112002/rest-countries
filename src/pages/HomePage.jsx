@@ -2,6 +2,7 @@ import { useState,useEffect, useRef } from "react"
 import SingleCountry from "../components/SingleCountry";
 import SearchBar from "../components/SearchBar";
 import useFetch from "../components/hooks/useFetch.js";
+import Spinner from "../components/Spinner.jsx";
 
 const HomePage = () => {
 
@@ -24,8 +25,8 @@ const HomePage = () => {
     }
     
   return (
-    loading? <h1>Loading</h1>:
-    <section className="bg-gray-200 overflow-hidden pb-10">
+    loading? <Spinner isLoading={loading}/>
+    :<section className="dark:bg-DMB bg-LMB overflow-hidden pb-10">
         <SearchBar region={region}
          setRegion={setRegion}
          searchValue={searchValue} 
@@ -37,7 +38,7 @@ const HomePage = () => {
          setSortOrder={setSortOrder}
          setResultCountries={() => {}}
         />
-        <div className="grid grid-cols-1 md:grid-cols-4  place-items-center mx-10">{
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 place-items-center md:mx-10 mx-3" >{
             resultCountries.map((country,i)=>(<SingleCountry country={country} key={i}></SingleCountry>))
             }
         </div>

@@ -3,7 +3,7 @@
 const Dropdown = (props) => {
   return (
     <select 
-    className='box-border bg-white w-60 ml-15 p-5'
+    className='box-border bg-white w-60 md:ml p-5 bg-LME text-LMT dark:bg-DME dark:text-DMT place-self-center'
     value={props.value} 
     onChange={(e)=>props.onChange(e.target.value)}  
     >
