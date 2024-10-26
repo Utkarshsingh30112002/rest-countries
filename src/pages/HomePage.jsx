@@ -1,6 +1,6 @@
 import { useState,useEffect, useRef } from "react"
-import SingleCountry from "../components/SingleCountry";
-import SearchBar from "../components/SearchBar";
+import SingleCountry from "../components/HomePage/SingleCountry";
+import SearchBar from "../components/HomePage/SearchBar";
 import useFetch from "../components/hooks/useFetch.js";
 import Spinner from "../components/Spinner.jsx";
 
